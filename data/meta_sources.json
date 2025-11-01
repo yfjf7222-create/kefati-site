@@ -1,0 +1,27 @@
+// api/generate-question.js
+export default async function handler(req, res){
+  if(req.method!=="POST"){ return res.status(405).json({ error:"Method not allowed" }); }
+  const { topic, type } = req.body || {};
+  if(!topic){ return res.status(400).json({ error:"topic required" }); }
+
+  // قالب توليد مبسّط (يمكن ربطه لاحقًا بواجهة ذكاء اصطناعي عبر متغيرات بيئية)
+  const base = {
+    title: type==="mcq" ? `سؤال اختياري حول: ${topic}` : `سؤال قصير حول: ${topic}`,
+    desc: `سؤال مُولّد استنادًا إلى موضوع "${topic}" وبأسلوب يشابه صياغة الأسئلة الوزارية.`,
+    explanation: `السؤال يستهدف المفاهيم الأساسية المرتبطة بموضوع "${topic}".`,
+    source: `مستوحى من نمط الأسئلة الوزارية المحلية`
+  };
+
+  if(type==="mcq"){
+    base.options = [
+      { text:`خيار مرتبط بـ ${topic}`, correct:true },
+      { text:`خيار مشتت 1`, correct:false },
+      { text:`خيار مشتت 2`, correct:false },
+      { text:`خيار مشتت 3`, correct:false }
+    ];
+  }else{
+    base.answer = `إجابة موجزة حول ${topic}`;
+  }
+
+  return res.status(200).json(base);
+}
