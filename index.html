@@ -1,0 +1,94 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>منصة الاختبارات الوزارية — ذكي</title>
+  <meta name="description" content="أسئلة وزارية عراقية + توليد أسئلة مشابهة بالذكاء الاصطناعي وتقرير أداء." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand"><span class="logo">ذكي</span><span class="sep">—</span><span class="title">الاختبارات الوزارية</span></div>
+    <nav class="actions">
+      <button class="btn ghost" id="toggleTheme">مظهر</button>
+      <button class="btn primary" id="startMock">اختبار سريع</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <aside class="sidebar">
+      <div class="card">
+        <div class="section-title">مصدر الأسئلة</div>
+        <select id="subjectSelect">
+          <option value="iraq_biology_grade12">الأحياء — السادس العلمي</option>
+          <option value="iraq_chemistry_grade12">الكيمياء — السادس العلمي</option>
+        </select>
+        <div class="section-sub">من ملفات وزارية محلية قابلة للتحديث.</div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">توليد بالذكاء الاصطناعي</div>
+        <div class="row">
+          <label>موضوع:</label>
+          <input type="text" id="aiTopic" placeholder="مثال: الانقسام المنصف، الزراعة النسيجية" />
+        </div>
+        <div class="row">
+          <label>نوع السؤال:</label>
+          <select id="aiType">
+            <option value="mcq">اختيار من متعدد</option>
+            <option value="short">قصير</option>
+          </select>
+        </div>
+        <button class="btn accent" id="generateAI">ولّد سؤال</button>
+        <div id="aiResult" class="ai-box hidden"></div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">بحث وتصفية</div>
+        <input type="search" id="searchInput" placeholder="ابحث في الأسئلة الوزارية..." />
+        <div class="chips">
+          <label class="chip"><input type="radio" name="filter" value="all" checked /> الكل</label>
+          <label class="chip"><input type="radio" name="filter" value="mcq" /> اختيار من متعدد</label>
+          <label class="chip"><input type="radio" name="filter" value="short" /> قصيرة</label>
+        </div>
+      </div>
+    </aside>
+
+    <section class="content">
+      <div class="card section-header">
+        <div class="section-title">بنك الأسئلة الوزارية</div>
+        <div class="section-meta"><span id="countLabel">0</span> سؤال</div>
+      </div>
+
+      <div id="questionsList" class="questions"></div>
+
+      <div class="card pagination">
+        <button class="btn" id="prevPage">السابق</button>
+        <div class="page-info" id="pageInfo">صفحة 1</div>
+        <button class="btn" id="nextPage">التالي</button>
+      </div>
+
+      <div class="card section-header">
+        <div class="section-title">تقرير الأداء</div>
+        <div class="kpis">
+          <div class="kpi"><div class="kpi-label">إجابات صحيحة</div><div class="kpi-value" id="correctCount">0</div></div>
+          <div class="kpi"><div class="kpi-label">إجابات خاطئة</div><div class="kpi-value" id="wrongCount">0</div></div>
+          <div class="kpi"><div class="kpi-label">نسبة الإتقان</div><div class="kpi-value" id="mastery">0%</div></div>
+        </div>
+        <button class="btn" id="exportReport">تصدير التقرير</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="source">يعتمد على ملفات وزارية محلية + توليد أسئلة مشابهة بالذكاء الاصطناعي.</div>
+    <div class="copyright">© 2025 سلمان — منصة ذكي</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
