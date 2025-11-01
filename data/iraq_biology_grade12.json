@@ -1,0 +1,7 @@
+// data/meta_sources.json
+{
+  "sources": [
+    { "key": "iraq_biology_grade12", "name": "وزاري العراق — أحياء السادس", "notes": "مصادر محلية، تُحدّث دورياً" },
+    { "key": "iraq_chemistry_grade12", "name": "وزاري العراق — كيمياء السادس", "notes": "مصادر محلية، تُحدّث دورياً" }
+  ]
+}
