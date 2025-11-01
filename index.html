@@ -1,1 +1,115 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>نتائج الامتحان — كفاءة | سلمان</title>
+  <meta name="description" content="ملخص الامتحان، النسبة المئوية، الأسئلة المجابة والمتروكة، وتوصيات مخصصة." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="logo">كفاءة</span>
+      <span class="sep">—</span>
+      <span class="title">نتائج الامتحان</span>
+    </div>
+    <nav class="actions">
+      <button class="btn ghost" id="toggleTheme" aria-label="تبديل المظهر">مظهر</button>
+      <button class="btn primary" id="exportBtn">تصدير</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <aside class="sidebar">
+      <div class="card user">
+        <div class="user-name">سلمان</div>
+        <div class="user-meta">السادس العلمي — الأحياء</div>
+      </div>
+
+      <div class="card summary">
+        <div class="grid kpis">
+          <div class="kpi">
+            <div class="kpi-label">النسبة المئوية</div>
+            <div class="kpi-value" id="percent">0%</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">النقاط الحالية</div>
+            <div class="kpi-value" id="pointsCurrent">0</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">النقاط المطلوبة</div>
+            <div class="kpi-value" id="pointsGoal">80%</div>
+          </div>
+        </div>
+
+        <div class="grid counters">
+          <div class="counter">
+            <div class="counter-label">أسئلة مجابة</div>
+            <div class="counter-value" id="answered">0</div>
+          </div>
+          <div class="counter">
+            <div class="counter-label">أسئلة متروكة</div>
+            <div class="counter-value" id="left">129</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card tips">
+        <div class="tips-title">التوصيات المخصصة</div>
+        <ul class="tips-list" id="tipsList">
+          <li>ابدأ بمراجعة الكتاب الأساسي أو الملخصات الموثوقة خطوة بخطوة.</li>
+          <li>قسّم المادة إلى أجزاء صغيرة وراجع كل جزء بتركيز.</li>
+          <li>اجعل حل الأسئلة السابقة جزءاً من روتينك اليومي حتى لو بعدد قليل.</li>
+          <li>كرر مراجعة أخطائك لتترسخ وتتجنب تكرارها لاحقاً.</li>
+        </ul>
+      </div>
+
+      <div class="card filters">
+        <div class="filter-title">تصفية الأسئلة</div>
+        <div class="filter-row">
+          <label class="chip"><input type="radio" name="status" value="all" checked /> الكل</label>
+          <label class="chip"><input type="radio" name="status" value="unanswered" /> غير مُجاب</label>
+          <label class="chip"><input type="radio" name="status" value="correct" /> صحيحة</label>
+          <label class="chip"><input type="radio" name="status" value="wrong" /> خاطئة</label>
+        </div>
+        <div class="search-row">
+          <input type="search" id="searchInput" placeholder="ابحث بعنوان السؤال أو الكلمات المفتاحية..." />
+        </div>
+      </div>
+    </aside>
+
+    <section class="content">
+      <div class="card section-header">
+        <div class="section-title">جميع الأسئلة والإجابات</div>
+        <div class="section-meta"><span id="questionsCount">129</span> سؤال</div>
+      </div>
+
+      <div id="questionsList" class="questions">
+        <!-- تُملأ ديناميكياً بواسطة JavaScript -->
+      </div>
+
+      <div class="card pagination">
+        <button class="btn" id="prevPage">السابق</button>
+        <div class="page-info" id="pageInfo">صفحة 1</div>
+        <button class="btn" id="nextPage">التالي</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="source">
+      المصدر: النسخة المشابهة للموقع الذي زوّدتني به، مع إعادة بناء الواجهة والمحتوى بشكل كامل.
+    </div>
+    <div class="copyright">
+      © 2025 سلمان — منصة كفاءة التعليمية
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
